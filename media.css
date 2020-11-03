@@ -1,0 +1,58 @@
+@media screen and (max-width:1250px){
+    /* Title */ 
+    .title h1{
+        text-align: center;
+        font-size: 4rem;
+    } 
+
+    /* Edit Bar */ 
+    /* Right Side */
+    .create-new-grid{
+        flex-direction: column;
+    }
+    .dimension{
+        width: 47%;
+    }
+    .create{
+        width: 90%;
+        margin: 1rem auto 0;
+    } 
+    /* Left Side */
+    .extra-buttons{
+        flex-wrap: wrap;
+    } 
+    .reset,.remove-grid{
+        width: 45%;
+    }
+    .clear{
+        width: 50%;
+    }
+}  
+
+@media screen and (max-width: 830px){
+    /* Edit Bar */ 
+    /* Right Side */
+    .inputs{
+        display:flex; 
+        flex-direction: column;
+    }
+    .dimension{
+        margin-bottom: 0.3rem;
+        width: 100%;
+    }
+    .create{
+        width: 100%;
+    }
+    /* Left Side */
+    .extra-buttons{
+        flex-wrap: none;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .clear,.remove-grid,.reset{
+        width: 50%;
+    }
+    .remove-grid,.reset{
+        font-size: 1.4rem;
+    }
+}
