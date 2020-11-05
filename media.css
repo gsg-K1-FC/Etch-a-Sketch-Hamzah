@@ -6,7 +6,7 @@
     } 
 
     /* Edit Bar */ 
-    /* Right Side */
+    /* Left Side */
     .create-new-grid{
         flex-direction: column;
     }
@@ -17,7 +17,7 @@
         width: 90%;
         margin: 1rem auto 0;
     } 
-    /* Left Side */
+    /* Right Side */
     .extra-buttons{
         flex-wrap: wrap;
     } 
@@ -31,7 +31,7 @@
 
 @media screen and (max-width: 830px){
     /* Edit Bar */ 
-    /* Right Side */
+    /* Left Side */
     .inputs{
         display:flex; 
         flex-direction: column;
@@ -43,7 +43,7 @@
     .create{
         width: 100%;
     }
-    /* Left Side */
+    /* Right Side */
     .extra-buttons{
         flex-wrap: none;
         flex-direction: column;
