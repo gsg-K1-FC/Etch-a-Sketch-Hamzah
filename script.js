@@ -10,12 +10,6 @@ document.querySelector("#create").addEventListener("click",function(){
 });   
 
 
-
-
-
-
-
-
 // This function creates the grid by getting the rows and cols
 // then populate it with cells
 function createGrid(){
