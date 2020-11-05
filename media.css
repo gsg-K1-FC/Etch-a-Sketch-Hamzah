@@ -3,8 +3,7 @@
     .title h1{
         text-align: center;
         font-size: 4rem;
-    } 
-
+    }
     /* Edit Bar */ 
     /* Left Side */
     .create-new-grid{
@@ -27,7 +26,7 @@
     .clear{
         width: 50%;
     }
-}  
+} 
 
 @media screen and (max-width: 830px){
     /* Edit Bar */ 
