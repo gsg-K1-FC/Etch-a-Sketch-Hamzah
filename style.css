@@ -7,10 +7,11 @@ html{
     font-size: 12px;
 }
 body{
-    --rows: 16; 
-    --cols: 16;
     background-color: #eeeaf4;
     background-image: url("background.svg");
+    font-family: 'Courier New', Courier, monospace;
+    --rows: 16; 
+    --cols: 16;
 }
 label{
    opacity: 0;
@@ -22,7 +23,6 @@ label{
     max-width: 100rem;
     font-family: 'Turret Road', cursive;
     font-size: 1.5rem;
-    font-weight: bolder;
     padding: 1rem 0;
     margin: 0 auto;
     color:  #e48d8d; 
@@ -40,22 +40,21 @@ label{
     border-radius: 0.5rem; 
     font-size: 1.5rem;
     height: 3rem;
-    transition:  transform 0.5s ease-in-out;
+    transition:  transform 0.3s ease-in-out;
     font-family: 'Turret Road', cursive;
     font-weight: 700;
 }
 .edit-bar-button:hover{
     box-shadow: 2px 2px 2px rgba(100,100,100,0.5);
-    transform: scale(1.2);
-    transition: 0.5s ease-in-out;
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
 }
 .edit-bar-button:focus{
     outline: none;
 }
 /* Left Side */
-.create-new-grid{
+#create-grid-form{
     display:flex;
-    width: 50%;
 }
 .input{
     display:flex;
@@ -65,17 +64,18 @@ label{
 .dimension{
     width: 45%;
     height: 3rem;
-    border: 2px solid black;
-    border-radius: 0.3rem; 
+    border: 3px solid black;
+    border-radius: 0.5rem;
+    outline:none; 
     padding: 0.8rem;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
 .dimension:focus{
     transform: scale(1.1);
-    transition: 0.5s ease-in-out; 
+    transition: 0.3s ease-in-out; 
 }
 .create-new-grid input:first-child{
-    margin-right: 1rem;
+    margin-right: 0.8rem;
 }
 .create{
     width: 30%;
@@ -105,11 +105,8 @@ label{
     border: 2px solid #aaaaaa;
     background-color: #aaaaaa;
 }
+
 /* Drawing Area */
-.cell{
-    border: 1px solid rgba(100,100,100,0.3);
-    background-color: white;
-}
 .grid-container{
     border: 5px groove black;
     display: grid;
@@ -117,13 +114,15 @@ label{
     grid-template-rows: repeat(var(--rows),1fr);
     width: 70%;
     max-width: 100rem;
-    height: 700px;
+    height: 650px;
     margin: 0 auto; 
+} 
+
+.cell{
+    border: 1px solid rgba(100,100,100,0.3);
+    background-color: white;
+} 
+
+.no-border{
+    border : none;
 }
-
-
-
-
-
-
-

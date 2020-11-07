@@ -12,27 +12,29 @@
 </head>
 <body>
     
+    <!-- Title -->
     <div class="title">
         <h1>Etch a Sketch</h1>
     </div>
-    
-    <div class="edit-bar">
+    <!-- Top Edit Bar -->
+    <section class="edit-bar">
         <div class="create-new-grid">
-            <div class="inputs">
-                <label for="rows">Enter the rows number</label>
-                <input id="rows" class="dimension" type="number" min="1" placeholder="number of rows">
-                <label for="cols">Enter the columns number</label> 
-                <input id="cols" class="dimension" type="number" min="1" placeholder="number of columns"> 
-            </div>
-            <button id="create" class="edit-bar-button create">Create</button>
+            <label for="rows">Enter number of rows</label>
+            <label for="cols">Enter number of columns</label>
+            <form id="create-grid-form">
+                <div class="inputs">
+                    <input id="rows" class="dimension" type="number" min="1" placeholder="number of rows">
+                    <input id="cols" class="dimension" type="number" min="1" placeholder="number of columns"> 
+                </div>
+                <input type="submit" id="create" value="Create" class="edit-bar-button create"></input>
+            </form> 
         </div>
         <div class="extra-buttons">
             <button id="reset" class="edit-bar-button reset">Reset Cells</button>
             <button id="remove-grid" class="edit-bar-button remove-grid">Remove Grid</button>
             <button id="clear" class="edit-bar-button clear">Clear</button>
         </div>
-        
-    </div>
+    </section>
   
     <div class="grid-container"> 
         
