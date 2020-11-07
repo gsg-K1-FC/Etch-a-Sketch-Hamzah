@@ -28,7 +28,6 @@ label{
     color:  #e48d8d; 
 } 
 
-
 /* Edit Bar */
 .edit-bar{
     display: flex;
@@ -54,9 +53,8 @@ label{
     outline: none;
 }
 /* Left Side */
-.create-new-grid{
+#create-grid-form{
     display:flex;
-    width: 50%;
 }
 .input{
     display:flex;
