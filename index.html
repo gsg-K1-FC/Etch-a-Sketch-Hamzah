@@ -20,12 +20,14 @@
     <section class="edit-bar">
         <div class="create-new-grid">
             <label for="rows">Enter number of rows</label>
-            <label for="cols">Enter number of columns</label> 
-            <div class="inputs">
-                <input id="rows" class="dimension" type="number" min="1" placeholder="number of rows">
-                <input id="cols" class="dimension" type="number" min="1" placeholder="number of columns"> 
-            </div>
-            <button id="create" class="edit-bar-button create">Create</button>
+            <label for="cols">Enter number of columns</label>
+            <form id="create-grid-form">
+                <div class="inputs">
+                    <input id="rows" class="dimension" type="number" min="1" placeholder="number of rows">
+                    <input id="cols" class="dimension" type="number" min="1" placeholder="number of columns"> 
+                </div>
+                <input type="submit" id="create" value="Create" class="edit-bar-button create"></input>
+            </form> 
         </div>
         <div class="extra-buttons">
             <button id="reset" class="edit-bar-button reset">Reset Cells</button>

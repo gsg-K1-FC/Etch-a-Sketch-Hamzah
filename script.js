@@ -4,6 +4,11 @@ const gridContainer = document.querySelector(".grid-container");
 // use populateCells function to do what the name suggests
 populateCells(16 * 16);
 
+// Add event listener to the create grid form to prevent page reload by default.
+document.querySelector("#create-grid-form").addEventListener("submit",function(event){
+  event.preventDefault();
+});
+
 // Add event listener to the create button
 document.querySelector("#create").addEventListener("click", function () {
   createGrid();
@@ -30,20 +35,17 @@ document.querySelector("#clear").addEventListener("click", function () {
   if (response) clear();
 });
 
+
 let isSketching = false;
 let isErasing = false;
 // Add event listener (keydown) to the document to capture (s) and (e) keys in addtion to
 // (Enter) key
 document.addEventListener("keydown", function (event) {
   if (event.code === "KeyS") {
-    isSketching = !isSketching;
+    isSketching = !isSketching; 
     isErasing = false;
   }
-  if (event.code === "Enter") {
-    createGrid();
-    document.querySelector("#rows").blur();
-    document.querySelector("#cols").blur();
-  }
+  
   if (event.code === "KeyE") {
     isErasing = !isErasing;
     isSketching = false;
