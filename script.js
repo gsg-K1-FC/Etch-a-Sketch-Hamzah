@@ -1,3 +1,4 @@
+let cellsColor = {};
 const body = document.querySelector("body");
 const gridContainer = document.querySelector(".grid-container");
 
@@ -61,6 +62,19 @@ gridContainer.addEventListener("mouseover", function (event) {
     if (cellBackgroundColor === "rgb(255, 255, 255)") {
       let randColor = randomColor();
       event.target.style.backgroundColor = convertRGBtoHEX(randColor);
+      cellsColor[id] = { color: randColor, count: 1 };
+    } else {
+      if (cellsColor[id]) {
+        if (cellsColor[id].count <= 10) {
+          let currentColor = cellsColor[id].color;
+          let currentCount = cellsColor[id].count;
+          event.target.style.backgroundColor = darkenTheColor(
+            currentColor,
+            currentCount
+          );
+          cellsColor[id].count = ++currentCount;
+        }
+      }
     }
   }
   if (isErasing) {
@@ -103,6 +117,16 @@ function randomColor() {
   color.green = Math.floor(Math.random() * 240);
   color.blue = Math.floor(Math.random() * 240);
   return color;
+}
+
+// This function makes a color darker
+// by deducting 10% of it.
+function darkenTheColor(color, count) {
+  let newColor = {};
+  newColor.red = Math.floor(color.red - color.red * (count * 0.1));
+  newColor.green = Math.floor(color.green - color.green * (count * 0.1));
+  newColor.blue = Math.floor(color.blue - color.blue * (count * 0.1));
+  return convertRGBtoHEX(newColor);
 }
 
 // This function convert RGB color to HEX Code
