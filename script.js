@@ -66,6 +66,17 @@ document.querySelector("#clear").addEventListener("click", function () {
   if (response) clear();
 });
 
+// Pick color functionality
+let pickedColor = "";
+colorPicker.addEventListener("click", function (buttonEvent) {
+  let color = document.querySelector("#color");
+  color.click();
+  color.addEventListener("change", function (colorEvent) {
+    pickedColor = colorEvent.target.value;
+    buttonEvent.target.style.color = pickedColor;
+  });
+});
+
 let isSketching = false;
 let isErasing = false;
 // Add event listener (keydown) to the document to capture (s) and (e) keys in addtion to
@@ -94,18 +105,21 @@ gridContainer.addEventListener("mouseover", function (event) {
     );
     if (cellBackgroundColor === "rgb(255, 255, 255)") {
       let randColor = randomColor();
-      event.target.style.backgroundColor = convertRGBtoHEX(randColor);
+      let sketchColor = pickedColor ? pickedColor : convertRGBtoHEX(randColor);
+      event.target.style.backgroundColor = sketchColor;
       cellsColor[id] = { color: randColor, count: 1 };
     } else {
-      if (cellsColor[id]) {
-        if (cellsColor[id].count <= 10) {
-          let currentColor = cellsColor[id].color;
-          let currentCount = cellsColor[id].count;
-          event.target.style.backgroundColor = darkenTheColor(
-            currentColor,
-            currentCount
-          );
-          cellsColor[id].count = ++currentCount;
+      if (!pickedColor) {
+        if (cellsColor[id]) {
+          if (cellsColor[id].count <= 10) {
+            let currentColor = cellsColor[id].color;
+            let currentCount = cellsColor[id].count;
+            event.target.style.backgroundColor = darkenTheColor(
+              currentColor,
+              currentCount
+            );
+            cellsColor[id].count = ++currentCount;
+          }
         }
       }
     }
