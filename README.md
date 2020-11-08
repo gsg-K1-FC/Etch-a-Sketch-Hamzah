@@ -39,8 +39,12 @@
 - Color Darkening: 
     - This happen whenever you are in the default mode (Rainbow mode) only. 
     - In this, each time you hover over a colored cell its color will darken by 10% 
-    - After 10 times the cell is black
+    - After 10 times the cell is black 
     
+---
+### Github Pages link: 
+- [Etch-a-Sketch](https://gsg-k1-fc.github.io/Etch-a-Sketch-Hamzah/)
+
 
 
 
