@@ -27,6 +27,7 @@
     - Monitor erase status (erase/non-erase) by looking at the second icon.
     - Pick a color by pressing on the third one.
     - Download the sketch by pressing on the fourth icon.
+- You can always refer to the info button on the top left corner of the page for information and instructions.
 ---
 ### Coloring Modes: 
 - There are two coloring modes: 
