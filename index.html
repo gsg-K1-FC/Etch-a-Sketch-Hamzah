@@ -71,9 +71,26 @@
         </div>
     </section>
   
-    <div class="grid-container"> 
+    <!-- Drawing Area -->
+    <section class="sketching-area">
+        <div id="grid">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="grid-container"> </div> 
+        </div>
         
-    </div>
+        <!-- Side Edit bar (Tool set) -->
+        <div class="tool-set">
+            <i id="sketch" title="Sketch" class="fas fa-paint-brush fa-4x"></i>
+            <i id="erase" title="Erase" class="fas fa-eraser fa-4x"></i>
+            <i id="pick-color" title="Pick a color" class="fas fa-palette fa-4x button"></i>
+            <a id="download" download="Sketch">
+                <i title="Download the Sketch" class="fas fa-download fa-4x button"></i>
+            </a>
+        </div>
+        <div class="color-picker">
+            <label for="color">Please pick your color:</label>
+            <input type="color" id="color" value="#B4AFD4">
+        </div> 
+    </section>
 
 
     <script src="script.js" type="text/javascript"></script>

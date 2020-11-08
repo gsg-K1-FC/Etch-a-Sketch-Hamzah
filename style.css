@@ -152,23 +152,68 @@ label{
 }
 
 /* Drawing Area */
+.sketching-area{
+    position: relative;
+    width: 70%;
+    display:flex;
+    margin: 0 auto;
+    max-width: 100rem;
+} 
+#grid{
+    width: 95%;
+}
 .grid-container{
     border: 5px groove black;
     display: grid;
     grid-template-columns: repeat(var(--cols),1fr);
     grid-template-rows: repeat(var(--rows),1fr);
-    width: 70%;
-    max-width: 100rem;
     height: 650px;
-    margin: 0 auto; 
-} 
-
+}
 .cell{
     border: 1px solid rgba(100,100,100,0.3);
     background-color: white;
+}  
+
+/* Tool Set */ 
+.tool-set{
+    width: 5%;
+    display:flex; 
+    flex-direction: column;
+    justify-content: center;
+}
+.tool-set i{
+    padding: 1rem;
+}
+
+.tool-set #sketch{
+    color: #ffc7c7;
+}
+.tool-set #erase{
+    color: #aaaaaa;
+}
+.tool-set #pick-color{
+    color: rgb(180, 175, 212);
+}
+.tool-set #download{
+    color: black;
 } 
+.tool-set .button:hover{
+    transform: scale(1.1);
+}
+
+/* Color Picker */
+.color-picker{
+    align-self: center;
+    position: absolute; 
+    right: -4rem;
+    opacity: 0;
+}
+
 
 /* Utility classes */
+.focus{
+    transform: scale(1.4); 
+}
 .no-border{
     border : none;
 }
