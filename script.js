@@ -1,6 +1,9 @@
 let cellsColor = {};
 const body = document.querySelector("body");
 const gridContainer = document.querySelector(".grid-container");
+const sketchButton = document.querySelector("#sketch");
+const eraseButton = document.querySelector("#erase");
+const colorPicker = document.querySelector("#pick-color");
 
 // use populateCells function to do what the name suggests
 populateCells(16 * 16);
@@ -71,11 +74,13 @@ document.addEventListener("keydown", function (event) {
   if (event.code === "KeyS") {
     isSketching = !isSketching;
     isErasing = false;
+    changeRespectiveButton(sketchButton, eraseButton);
   }
 
   if (event.code === "KeyE") {
     isErasing = !isErasing;
     isSketching = false;
+    changeRespectiveButton(eraseButton, sketchButton);
   }
 });
 
@@ -107,6 +112,20 @@ gridContainer.addEventListener("mouseover", function (event) {
   }
   if (isErasing) {
     erase(event);
+  }
+});
+
+// Add event listener to the tool icons
+document.querySelector(".tool-set").addEventListener("click", function (event) {
+  const id = event.target.id;
+  if (event.target.id === "sketch") {
+    isSketching = !isSketching;
+    isErasing = false;
+    changeRespectiveButton(sketchButton, eraseButton);
+  } else if (event.target.id === "erase") {
+    isErasing = !isErasing;
+    isSketching = false;
+    changeRespectiveButton(eraseButton, sketchButton);
   }
 });
 
@@ -200,5 +219,18 @@ function erase(event) {
       green: 255,
       blue: 255,
     });
+  }
+}
+
+// This function changes the focus of the sent buttons
+function changeRespectiveButton(buttonToFocus, buttonToUnfocus) {
+  if (buttonToFocus.classList.contains("focus")) {
+    buttonToFocus.classList.remove("focus");
+  } else {
+    buttonToFocus.classList.add("focus");
+  }
+
+  if (buttonToUnfocus.classList.contains("focus")) {
+    buttonToUnfocus.classList.remove("focus");
   }
 }
