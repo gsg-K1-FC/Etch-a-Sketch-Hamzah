@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="This app is a tool between sketchpad and Etch-a-Sketch game">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="stylesheet" href="media.css" type="text/css">
     <!-- Google fonts Turret Road font -->
@@ -11,24 +12,58 @@
     <title>Etch a Sketch-Hamzah</title>
 </head>
 <body>
-    
+    <!-- Info button -->
+    <div class="info">
+        <i id="info" title="info" class="fas fa-info-circle fa-3x"></i>
+    </div> 
+    <!-- Info content (Instructions) -->
+    <div class="info-content">
+        <div class="how-to-use">
+            <h1>How to use?</h1>
+            <ul>
+                <li>Press (S) or click <i class="fas fa-paint-brush fa-sm"></i> to start/stop sketching</li>
+                <li>Press (E) or click <i class="fas fa-eraser fa-sm"></i> to start/stop erasing</li>
+            </ul>
+        </div> 
+        <div class="coloring-system">
+            <h1>Coloring System</h1>
+            <ul>
+                <li>
+                    Rainbow Mode:
+                    <ul>
+                        <li>Default Mode</li>
+                        <li>Each cell will be colored with randomly picked color when being hovered</li>
+                        <li>If you hover over a colored cell, its colore will get 10% darker</li>
+                    </ul>
+                </li>
+                <li>
+                    Color Picker Mode:
+                    <ul>
+                        <li>You can pick the color you want</li>
+                        <li>You need to click <i class="fas fa-palette fa-sm"></i> to choose</li>
+                        <li>Once you're here you can get back to Rainbow mode by refreshing the page</li>
+                    </ul>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <!-- Title -->
     <div class="title">
         <h1>Etch a Sketch</h1>
     </div>
     <!-- Top Edit Bar -->
     <section class="edit-bar">
-        <div class="create-new-grid">
-            <label for="rows">Enter number of rows</label>
-            <label for="cols">Enter number of columns</label>
-            <form id="create-grid-form">
-                <div class="inputs">
-                    <input id="rows" class="dimension" type="number" min="1" placeholder="number of rows">
-                    <input id="cols" class="dimension" type="number" min="1" placeholder="number of columns"> 
-                </div>
-                <input type="submit" id="create" value="Create" class="edit-bar-button create"></input>
-            </form> 
-        </div>
+        <label for="rows">Enter number of rows</label>
+        <label for="cols">Enter number of columns</label> 
+        <form id="create-grid-form">
+            <div class="inputs">
+                <input id="rows" class="dimension" type="number" min="1" placeholder="number of rows">
+                <input id="cols" class="dimension" type="number" min="1" placeholder="number of columns"> 
+            </div>
+            <input type="submit" id="create" value="Create" class="edit-bar-button create"></input>
+        </form> 
         <div class="extra-buttons">
             <button id="reset" class="edit-bar-button reset">Reset Cells</button>
             <button id="remove-grid" class="edit-bar-button remove-grid">Remove Grid</button>

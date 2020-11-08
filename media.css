@@ -6,7 +6,7 @@
     }
     /* Edit Bar */ 
     /* Left Side */
-    .create-new-grid{
+    #create-grid-form{
         flex-direction: column;
     }
     .dimension{
@@ -19,12 +19,13 @@
     /* Right Side */
     .extra-buttons{
         flex-wrap: wrap;
+        justify-content: space-around;
     } 
     .reset,.remove-grid{
-        width: 45%;
+        width: 40%;
     }
     .clear{
-        width: 50%;
+        width: 70%;
     }
 } 
 
@@ -53,5 +54,13 @@
     }
     .remove-grid,.reset{
         font-size: 1.4rem;
+    }
+} 
+
+@media screen and (max-width:630px){
+    .info-content{
+        width: 90vw; 
+        height: 90vh;
+        overflow: scroll; 
     }
 }

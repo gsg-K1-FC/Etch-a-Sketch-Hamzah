@@ -16,7 +16,51 @@ body{
 label{
    opacity: 0;
    position: absolute;
+} 
+
+/* Info bulb */ 
+.info{
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    color: rgb(150, 150, 255) 
 }
+.info:hover{
+    transform: scale(1.2);
+    transition: 0.5 ease-in-out;
+} 
+
+.info-content{
+    position: fixed;
+    top: -50rem;
+    left: -50rem;
+
+    width: 50rem; 
+    height: 45rem;
+    padding: 2rem;
+
+    background-color: rgba(238, 234, 244,0.4);
+    box-shadow: 3px 2px 5px rgba(150, 150, 255,0.5);
+    border: 2px solid rgb(150, 150, 255);
+    backdrop-filter: blur(3px); 
+
+    z-index: 1;  
+}
+.info-content ul{
+    padding: 0.5rem 0.3rem 0.5rem 2rem;
+} 
+.info-content ul li{
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+.how-to-use{
+    border-bottom: 3px solid #e48d8d; 
+} 
+.coloring-system{
+   padding-top: 1.5rem;
+}
+
 /* Title */ 
 .title{
     width: 70%;
@@ -55,11 +99,12 @@ label{
 /* Left Side */
 #create-grid-form{
     display:flex;
+    width: 50%;
 }
 .input{
     display:flex;
-    justify-content: space-evenly;
-    width: 70%;
+    justify-content: space-between;
+    width: 75%;
 }
 .dimension{
     width: 45%;
@@ -74,7 +119,7 @@ label{
     transform: scale(1.1);
     transition: 0.3s ease-in-out; 
 }
-.create-new-grid input:first-child{
+#create-grid-form input:first-child{
     margin-right: 0.8rem;
 }
 .create{
@@ -123,6 +168,45 @@ label{
     background-color: white;
 } 
 
+/* Utility classes */
 .no-border{
     border : none;
+}
+.show{
+    animation: crawlIn 1s ease forwards;
+}
+.hide{
+    animation: crawlOut 1s ease forwards;
+}  
+
+@keyframes crawlIn {
+    0%{
+        opacity: 0;
+        top: -0.5rem;
+        left: -0.5rem;
+    } 
+    50%{
+        opacity: 0.5; 
+        top: 8rem;
+        left: 5rem;
+    }
+    100%{
+        opacity: 1;
+        top: 4.5rem;
+        left: 3rem;
+    }
+
+} 
+
+@keyframes crawlOut{
+    0%{
+        opacity: 1; 
+        top: 4.5rem; 
+        left: 8rem;
+    }
+    100%{
+        opacity: 0; 
+        top: 4.5rem; 
+        left: -50rem;
+    }
 }
