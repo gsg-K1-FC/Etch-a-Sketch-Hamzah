@@ -5,10 +5,37 @@ const gridContainer = document.querySelector(".grid-container");
 // use populateCells function to do what the name suggests
 populateCells(16 * 16);
 
-// Add event listener to the create grid form to prevent page reload by default.
-document.querySelector("#create-grid-form").addEventListener("submit",function(event){
-  event.preventDefault();
+// Add event listener to the info button
+let infoContent = document.querySelector(".info-content");
+document.querySelector(".info").addEventListener("click", function () {
+  if (infoContent.classList.contains("show")) {
+    infoContent.classList.remove("show");
+    infoContent.classList.add("hide");
+  } else if (infoContent.classList.contains("hide")) {
+    infoContent.classList.add("show");
+    infoContent.classList.remove("hide");
+  } else {
+    infoContent.classList.add("show");
+  }
 });
+
+// Add event listener to the document to remove the info pop up when
+// it is being clicked any where apart from the info bulb
+document.addEventListener("click", function (event) {
+  if (infoContent.classList.contains("show") && event.target.id !== "info") {
+    infoContent.classList.remove("show");
+    infoContent.classList.add("hide");
+  }
+});
+
+// Add event listener to the create grid form to prevent page reload by default.
+document
+  .querySelector("#create-grid-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    document.querySelector("#rows").blur();
+    document.querySelector("#cols").blur();
+  });
 
 // Add event listener to the create button
 document.querySelector("#create").addEventListener("click", function () {
@@ -36,17 +63,16 @@ document.querySelector("#clear").addEventListener("click", function () {
   if (response) clear();
 });
 
-
 let isSketching = false;
 let isErasing = false;
 // Add event listener (keydown) to the document to capture (s) and (e) keys in addtion to
 // (Enter) key
 document.addEventListener("keydown", function (event) {
   if (event.code === "KeyS") {
-    isSketching = !isSketching; 
+    isSketching = !isSketching;
     isErasing = false;
   }
-  
+
   if (event.code === "KeyE") {
     isErasing = !isErasing;
     isSketching = false;

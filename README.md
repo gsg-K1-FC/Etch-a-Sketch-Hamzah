@@ -34,7 +34,7 @@
     In which a randomly generated color will be applied to the cell you hover over (default mode) 
     2. Color picker mode: 
         - In this mode, you can choose the color you want by pressing the color picker icon to the right of the sketching area
-        - Once you are in this mode, you can go back to Rainbow mode by refresing the page 
+        - Once you are in this mode, you can go back to Rainbow mode by refreshing the page 
 - Color Darkening: 
     - This happen whenever you are in the default mode (Rainbow mode) only. 
     - In this, each time you hover over a colored cell its color will darken by 10% 
