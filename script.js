@@ -79,19 +79,18 @@ colorPicker.addEventListener("click", function (buttonEvent) {
 
 let isSketching = false;
 let isErasing = false;
-// Add event listener (keydown) to the document to capture (s) and (e) keys in addtion to
-// (Enter) key
+// Add event listener (keydown) to the document to capture (s) and (e) keys
 document.addEventListener("keydown", function (event) {
   if (event.code === "KeyS") {
     isSketching = !isSketching;
     isErasing = false;
-    changeRespectiveButton(sketchButton, eraseButton);
+    changeButtonsFocus(sketchButton, eraseButton);
   }
 
   if (event.code === "KeyE") {
     isErasing = !isErasing;
     isSketching = false;
-    changeRespectiveButton(eraseButton, sketchButton);
+    changeButtonsFocus(eraseButton, sketchButton);
   }
 });
 
@@ -135,13 +134,21 @@ document.querySelector(".tool-set").addEventListener("click", function (event) {
   if (event.target.id === "sketch") {
     isSketching = !isSketching;
     isErasing = false;
-    changeRespectiveButton(sketchButton, eraseButton);
+    changeButtonsFocus(sketchButton, eraseButton);
   } else if (event.target.id === "erase") {
     isErasing = !isErasing;
     isSketching = false;
-    changeRespectiveButton(eraseButton, sketchButton);
+    changeButtonsFocus(eraseButton, sketchButton);
   }
 });
+
+// Add event listener to the download button
+document.querySelector("#download").addEventListener("click", function () {
+  const URI = saveTheSketch(document.querySelector(".sketching-area"));
+  this.setAttribute("href", URI);
+});
+
+// Utilitly Functions
 
 // This function creates the grid by getting the rows and cols
 // then populate it with cells
@@ -170,7 +177,7 @@ function populateCells(numberOfCells) {
   }
 }
 
-// This function generates random color
+// This function generates random color (not white)
 // in RGB format
 function randomColor() {
   let color = {};
@@ -228,16 +235,12 @@ function erase(event) {
     "background-color"
   );
   if (cellBackgroundColor !== "rgb(255, 255, 255)") {
-    event.target.style.backgroundColor = convertRGBtoHEX({
-      red: 255,
-      green: 255,
-      blue: 255,
-    });
+    event.target.style.backgroundColor = "#FFFFFF";
   }
 }
 
 // This function changes the focus of the sent buttons
-function changeRespectiveButton(buttonToFocus, buttonToUnfocus) {
+function changeButtonsFocus(buttonToFocus, buttonToUnfocus) {
   if (buttonToFocus.classList.contains("focus")) {
     buttonToFocus.classList.remove("focus");
   } else {
@@ -247,4 +250,43 @@ function changeRespectiveButton(buttonToFocus, buttonToUnfocus) {
   if (buttonToUnfocus.classList.contains("focus")) {
     buttonToUnfocus.classList.remove("focus");
   }
+}
+
+// This function gets what is drawn on the sketching area to
+// convert it into svg format and return its uri.
+function saveTheSketch(sketchArea) {
+  //Get cells background into single string
+  const grid = sketchArea.children[0];
+  const width = getComputedStyle(grid).width;
+  const rows = getComputedStyle(body).getPropertyValue("--rows");
+  const cols = getComputedStyle(body).getPropertyValue("--cols");
+  const children = Array.from(grid.children);
+  let cellsStyle = "";
+  children.forEach((child) => {
+    let childStyle = `#${child.id}{background-color: ${
+      getComputedStyle(child).backgroundColor
+    };}`;
+    cellsStyle += childStyle;
+  });
+
+  // Create svg image using the HTML and CSS of the sketch area
+  const svg = `
+    <svg xmlns='http://www.w3.org/2000/svg' width='${width}+20px' height='700'>
+        <style>
+            .grid-container{
+                border: 5px groove black;
+                display: grid;
+                grid-template-columns: repeat(${rows},1fr);
+                grid-template-rows: repeat(${cols},1fr);
+                height: 650px;
+            }
+            ${cellsStyle}
+        </style>
+        <foreignObject x='30px' y='30px' width='${width}' height='700'>
+                ${grid.innerHTML} 
+        </foreignObject>
+    </svg>`;
+  // Create dataUri by converting the svg into base-64 encoding ASCII string using Window.btoa() method
+  const dataUri = `data:image/svg+xml;base64,${window.btoa(svg)}`;
+  return dataUri;
 }
