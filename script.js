@@ -276,8 +276,8 @@ function saveTheSketch(sketchArea) {
             .grid-container{
                 border: 5px groove black;
                 display: grid;
-                grid-template-columns: repeat(${rows},1fr);
-                grid-template-rows: repeat(${cols},1fr);
+                grid-template-columns: repeat(${cols},1fr);
+                grid-template-rows: repeat(${rows},1fr);
                 height: 650px;
             }
             ${cellsStyle}
